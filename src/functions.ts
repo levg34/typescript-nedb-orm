@@ -1,3 +1,3 @@
-export test(input: string): string {
-    return +input'test'
+export function test(input: string): string {
+    return input+'test'
 }
