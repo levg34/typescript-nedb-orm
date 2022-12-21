@@ -1,6 +1,6 @@
 import Datastore from '@seald-io/nedb'
 
-interface IID {
+export interface IID {
     _id?: string
 }
 
@@ -8,11 +8,13 @@ interface IORM extends IID {
     save(): void
 }
 
-export class ORM<T> implements IORM {
+export class ORM<T extends IID> implements IORM {
     private static database: Datastore
     _id?: string
 
-    constructor() {}
+    constructor(t: T) {
+        if (t._id) this._id = t._id
+    }
 
     async save(): Promise<T> {
         const db = await ORM.getDatabase()
@@ -40,7 +42,7 @@ export class ORM<T> implements IORM {
         return ORM.database
     }
 
-    static async getDocs<T>(query: any): Promise<T[]> {
+    static async getDocs<T>(query: Partial<T>): Promise<T[]> {
         const db = await ORM.getDatabase()
         const docs = await db.findAsync(query)
         return docs
