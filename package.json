@@ -8,7 +8,8 @@
     "lib"
   ],
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "test": "echo 0"
   },
   "repository": {
     "type": "git",
