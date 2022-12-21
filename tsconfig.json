@@ -12,7 +12,7 @@
     "outDir": "lib",                        /* Redirect output structure to the directory. */
 
     /* Strict Type-Checking Options */
-    "strict": false,                           /* Enable all strict type-checking options. */
+    "strict": true,                           /* Enable all strict type-checking options. */
 
 
     /* Module Resolution Options */
