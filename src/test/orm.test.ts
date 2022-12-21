@@ -18,7 +18,7 @@ describe('instantiate, save, read, edit and delete', () => {
         await db.dropDatabaseAsync()
     })
 
-    it('can intentiate an ORM', () => {
+    it('can instantiate an ORM', () => {
         person = new Person(params)
         expect(person.email).toBe(params.email)
         expect(person.name).toBe(params.name)
