@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/levg34/typescript-nedb-orm#readme",
   "devDependencies": {
+    "@types/node": "^18.11.17",
     "typescript": "^4.9.4"
   },
   "dependencies": {
