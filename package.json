@@ -1,6 +1,6 @@
 {
   "name": "typescript-nedb-orm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ORM for @seald-io/nedb written in TypeScript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/levg34/typescript-nedb-orm.git"
   },
-  "keywords": [],
+  "keywords": ["nedb", "ORM", "typescript", "ODM"],
   "author": "levg34",
   "license": "GPLv3",
   "bugs": {
