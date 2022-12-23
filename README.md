@@ -1,7 +1,7 @@
 # typescript-nedb-orm
-ORM for @seald-io/nedb written in TypeScript
+ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
-![example workflow](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)
+![Deploy NPM Package](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)
 
 ## How to install
 
@@ -28,7 +28,7 @@ Create an objet extending ORM, parametrised with your class fields interface
 Example:
 
 ```typescript
-import { IID, ORM } from "../orm"
+import { IID, ORM } from 'typescript-nedb-orm'
 
 export interface IPerson extends IID {
     name: string
@@ -67,7 +67,7 @@ Fetch your objects in db:
 
 ```typescript
 const retrievedPersons: IPerson[] = await Person.getDocs<IPerson>({
-    email: params.email
+    email: 'luc@luc.fr'
 })
 ```
 
