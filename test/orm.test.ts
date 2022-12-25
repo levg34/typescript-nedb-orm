@@ -1,5 +1,5 @@
 import Datastore from '@seald-io/nedb'
-import { ORM } from '../orm'
+import { ORM } from '../src/orm'
 import { IPerson, Person } from "./person"
 
 describe('instantiate, save, read, edit and delete', () => {
