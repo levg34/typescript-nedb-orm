@@ -42,7 +42,7 @@ export class ORM<T extends IID> implements IORM {
         return ORM.database
     }
 
-    static async getDocs<T>(query: Partial<T>): Promise<T[]> {
+    static async find<T>(query: Partial<T>): Promise<T[]> {
         const db = await ORM.getDatabase()
         const docs = await db.findAsync(query)
         return docs
