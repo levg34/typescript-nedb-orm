@@ -30,12 +30,12 @@ Example:
 ```typescript
 import { IID, ORM } from 'typescript-nedb-orm'
 
-export interface IPerson extends IID {
+interface IPerson extends IID {
     name: string
     email: string
 }
 
-export class Person extends ORM<IPerson> implements IPerson {
+class Person extends ORM<IPerson> implements IPerson {
     name: string
     email: string
     constructor(person: IPerson) {
@@ -66,7 +66,7 @@ const savedPerson: IPerson = await person.save()
 Fetch your objects in db:
 
 ```typescript
-const retrievedPersons: IPerson[] = await Person.getDocs<IPerson>({
+const retrievedPersons: IPerson[] = await Person.find<IPerson>({
     email: 'luc@luc.fr'
 })
 ```

@@ -36,7 +36,7 @@ describe('instantiate, save, read, edit and delete', () => {
     })
     
     it ('can retrieve an object', async () => {
-        retrievedPerson = (await Person.getDocs<IPerson>({
+        retrievedPerson = (await Person.find<IPerson>({
             email: params.email
         }))[0]
         expect(retrievedPerson._id).toBeDefined()
