@@ -1,4 +1,5 @@
 import Datastore from '@seald-io/nedb'
+import { log } from 'console'
 
 export interface IID {
     _id?: string
@@ -46,5 +47,9 @@ export class ORM<T extends IID> implements IORM {
         const db = await ORM.getDatabase()
         const docs = await db.findAsync(query)
         return docs
+    }
+
+    test(): void {
+        console.log('test coverage')
     }
 }
