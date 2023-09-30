@@ -144,3 +144,7 @@ Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contribu
 If you encounter any issues or have suggestions, please [open an issue](https://github.com/levg34/typescript-nedb-orm/issues) on GitHub.
 
 Thank you for your contributions! This project is maintained by one person, and your efforts are greatly appreciated.
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.en.html) - see the [LICENSE](LICENSE) file for details.
