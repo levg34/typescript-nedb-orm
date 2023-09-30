@@ -104,6 +104,15 @@ describe('instantiate, save, read, edit and delete', () => {
         expect(count).toBe(2)
     })
 
+    it('can count all objects', async () => {
+        const count = await Person.count()
+        expect(count).toBe(2)
+    })
+
+    it('can find all objects', async () => {
+        //
+    })
+
     it('can remove several objects', async () => {
         const removed = await Person.remove({ name: 'Lucie' })
         expect(removed).toBe(2)
