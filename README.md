@@ -71,4 +71,48 @@ const retrievedPersons: IPerson[] = await Person.find<IPerson>({
 })
 ```
 
+Delete your object:
+
+```typescript
+const deleted: boolean = await person.delete()
+```
+
+Update your objects in db:
+
+```typescript
+const updated: number = await Person.update<IPerson>({
+    name: 'Luc'
+}, {
+    email: 'luc@new.fr'
+})
+```
+
+Remove your objects in db:
+
+```typescript
+const removed: number = await Person.remove<IPerson>({
+    email: 'luc@new.fr'
+})
+```
+
+Find one object in db:
+
+```typescript
+const found: IPerson | null = await Person.findOne<IPerson>({
+    name: 'Luc'
+})
+```
+
+Find an object by id in db:
+
+```typescript
+const foundById: IPerson | null = await Person.findById<IPerson>('1234567890')
+```
+
+Count the number of objects in db:
+
+```typescript
+const count: number = await Person.count<IPerson>()
+```
+
 Have fun! :)
