@@ -110,7 +110,17 @@ describe('instantiate, save, read, edit and delete', () => {
     })
 
     it('can find all objects', async () => {
-        //
+        const persons = await Person.find()
+        expect(persons).toContainEqual<IPerson>({
+            _id: expect.any(String),
+            name: 'Lucie',
+            email: 'luc@luc.fr'
+        })
+        expect(persons).toContainEqual<IPerson>({
+            _id: expect.any(String),
+            name: 'Lucie',
+            email: 'luc2@luc.fr'
+        })
     })
 
     it('can remove several objects', async () => {
