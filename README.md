@@ -118,3 +118,29 @@ const count: number = await Person.count<IPerson>()
 ```
 
 Have fun! :)
+
+## Contributing
+
+Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contributions are valued and help enhance this project.
+
+### How to Contribute
+
+1. Fork the repository and create your branch from `main`.
+2. Clone the forked repository to your local machine.
+3. Install the required dependencies using `npm install`.
+4. Make your changes, following these coding style guidelines:
+   - No semicolon at the end of lines.
+   - Use single quotes instead of double quotes.
+   - Indent with 4 spaces for TS and JS files, and 2 spaces for JSON or HTML.
+5. Ensure that the code passes the coverage requirements:
+   - Add tests for the changes made.
+   - Run `npx jest -- --coverage` to check if the code passes the coverage requirements.
+6. Update the documentation (`README.md`) to reflect your changes.
+7. Commit your changes and push them to your forked repository.
+8. Create a pull request to the `main` branch of the original repository.
+
+### Reporting Issues
+
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/levg34/typescript-nedb-orm/issues) on GitHub.
+
+Thank you for your contributions! This project is maintained by one person, and your efforts are greatly appreciated.
