@@ -72,11 +72,6 @@ export class ORM<T extends IID> implements IORM {
         return doc
     }
 
-    static async findByCondition<T>(condition: any): Promise<T[]> {
-        const db = await ORM.getDatabase()
-        const docs = await db.findAsync(condition)
-        return docs
-    }
 
     static async countByCondition<T>(condition: any): Promise<number> {
         const db = await ORM.getDatabase()
