@@ -47,4 +47,35 @@ export class ORM<T extends IID> implements IORM {
         const docs = await db.findAsync(query)
         return docs
     }
+
+    static async findOne<T>(query: Partial<T>): Promise<T | null> {
+        const db = await ORM.getDatabase()
+        const doc = await db.findOneAsync(query)
+        return doc
+    }
+
+    static async update<T>(query: Partial<T>, update: Partial<T>, options?: any): Promise<number> {
+        const db = await ORM.getDatabase()
+        const { numAffected } = await db.updateAsync(query, { $set: update }, options)
+        return numAffected
+    }
+
+    static async remove<T>(query: Partial<T>, options?: any): Promise<number> {
+        const db = await ORM.getDatabase()
+        const numRemoved = await db.removeAsync(query, options)
+        return numRemoved
+    }
+
+    static async findById<T>(id: string): Promise<T | null> {
+        const db = await ORM.getDatabase()
+        const doc = await db.findOneAsync({ _id: id })
+        return doc
+    }
+
+
+    static async count<T>(condition: any): Promise<number> {
+        const db = await ORM.getDatabase()
+        const count = await db.countAsync(condition)
+        return count
+    }
 }
