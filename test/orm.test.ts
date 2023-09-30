@@ -59,4 +59,35 @@ describe('instantiate, save, read, edit and delete', () => {
         const recordCount = await db.countAsync({email: newMail})
         expect(recordCount).toBe(1)
     })
+
+    it('can delete an object', async () => {
+        await person.delete()
+        const recordCount = await db.countAsync({email: newMail})
+        expect(recordCount).toBe(0)
+    })
+
+    it('can find one among many', async () => {
+        // TODO
+        await Person.findOne({})
+    })
+
+    it('can update several objects', async () => {
+        // TODO
+        await Person.update({}, {})
+    })
+
+    it('can remove several objects', async () => {
+        // TODO
+        await Person.remove({})
+    })
+
+    it('can find an object by id', async () => {
+        // TODO
+        await Person.findById('')
+    })
+
+    it('can count the objects', async () => {
+        // TODO
+        await Person.count({})
+    })
 })
