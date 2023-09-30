@@ -73,7 +73,7 @@ export class ORM<T extends IID> implements IORM {
     }
 
 
-    static async countByCondition<T>(condition: any): Promise<number> {
+    static async count<T>(condition: any): Promise<number> {
         const db = await ORM.getDatabase()
         const count = await db.countAsync(condition)
         return count
