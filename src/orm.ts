@@ -65,7 +65,7 @@ export class ORM<T extends IID> implements IORM {
 
     static async update<T>(query: Partial<T>, update: Partial<T>, options?: any): Promise<number> {
         const db = await ORM.getDatabase()
-        const { numAffected } = await db.updateAsync(query, { $set: update }, options)
+        const { numAffected } = await db.updateAsync(query, { $set: update }, { multi: true, ...options })
         return numAffected
     }
 
