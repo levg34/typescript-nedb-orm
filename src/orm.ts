@@ -30,10 +30,9 @@ export class ORM<T extends IID> implements IORM {
 
     async delete(): Promise<void> {
         const db = await ORM.getDatabase()
+        console.log(this)
         if (this._id) {
-            // TODO
-        } else {
-            // TODO
+            await db.removeAsync({ _id: this._id }, { multi: false })
         }
     }
 
