@@ -28,6 +28,15 @@ export class ORM<T extends IID> implements IORM {
         }
     }
 
+    async delete(): Promise<void> {
+        const db = await ORM.getDatabase()
+        if (this._id) {
+            // TODO
+        } else {
+            // TODO
+        }
+    }
+
     toDocument(): T {
         return JSON.parse(JSON.stringify(this))
     }
