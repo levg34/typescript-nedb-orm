@@ -51,15 +51,15 @@ export class ORM<T extends IID> implements IORM {
         return ORM.database
     }
 
-    static async find<T>(query: Partial<T>): Promise<T[]> {
+    static async find<T>(query?: Partial<T>, projection?: Partial<T>): Promise<T[]> {
         const db = await ORM.getDatabase()
-        const docs = await db.findAsync(query)
+        const docs = await db.findAsync(query, projection)
         return docs
     }
 
-    static async findOne<T>(query: Partial<T>): Promise<T | null> {
+    static async findOne<T>(query: Partial<T>, projection?: Partial<T>): Promise<T | null> {
         const db = await ORM.getDatabase()
-        const doc = await db.findOneAsync(query)
+        const doc = await db.findOneAsync(query, projection)
         return doc
     }
 
@@ -75,14 +75,14 @@ export class ORM<T extends IID> implements IORM {
         return numRemoved
     }
 
-    static async findById<T>(id: string): Promise<T | null> {
+    static async findById<T>(id: string, projection?: Partial<T>): Promise<T | null> {
         const db = await ORM.getDatabase()
-        const doc = await db.findOneAsync({ _id: id })
+        const doc = await db.findOneAsync({ _id: id }, projection)
         return doc
     }
 
 
-    static async count<T>(condition: Partial<T>): Promise<number> {
+    static async count<T>(condition?: Partial<T>): Promise<number> {
         const db = await ORM.getDatabase()
         const count = await db.countAsync(condition)
         return count
