@@ -63,13 +63,13 @@ export class ORM<T extends IID> implements IORM {
         return doc
     }
 
-    static async update<T>(query: Partial<T>, update: Partial<T>, options?: any): Promise<number> {
+    static async update<T>(query: Partial<T>, update: Partial<T>, options?: Datastore.UpdateOptions): Promise<number> {
         const db = await ORM.getDatabase()
         const { numAffected } = await db.updateAsync(query, { $set: update }, { multi: true, ...options })
         return numAffected
     }
 
-    static async remove<T>(query: Partial<T>, options?: any): Promise<number> {
+    static async remove<T>(query: Partial<T>, options?: Datastore.RemoveOptions): Promise<number> {
         const db = await ORM.getDatabase()
         const numRemoved = await db.removeAsync(query, { multi: true, ...options })
         return numRemoved
@@ -82,7 +82,7 @@ export class ORM<T extends IID> implements IORM {
     }
 
 
-    static async count<T>(condition: any): Promise<number> {
+    static async count<T>(condition: Partial<T>): Promise<number> {
         const db = await ORM.getDatabase()
         const count = await db.countAsync(condition)
         return count
