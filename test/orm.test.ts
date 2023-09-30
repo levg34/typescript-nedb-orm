@@ -98,19 +98,24 @@ describe('instantiate, save, read, edit and delete', () => {
             email: 'luc2@luc.fr'
         })
     })
+    
+    it('can count the objects', async () => {
+        const count = await Person.count({ name: 'Lucie' })
+        expect(count).toBe(2)
+    })
 
     it('can remove several objects', async () => {
-        // TODO
-        await Person.remove({})
+        const removed = await Person.remove({ name: 'Lucie' })
+        expect(removed).toBe(2)
     })
 
     it('can find an object by id', async () => {
-        // TODO
-        await Person.findById('')
-    })
-
-    it('can count the objects', async () => {
-        // TODO
-        await Person.count({})
+        const person = new Person({
+            name: 'Luc',
+            email: 'luc@luc.fr'
+        })
+        const savedPerson = await person.save()
+        const foundPerson = await Person.findById(savedPerson._id as string)
+        expect(foundPerson).toEqual(savedPerson)
     })
 })

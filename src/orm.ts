@@ -71,7 +71,7 @@ export class ORM<T extends IID> implements IORM {
 
     static async remove<T>(query: Partial<T>, options?: any): Promise<number> {
         const db = await ORM.getDatabase()
-        const numRemoved = await db.removeAsync(query, options)
+        const numRemoved = await db.removeAsync(query, { multi: true, ...options })
         return numRemoved
     }
 
