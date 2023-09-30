@@ -20,7 +20,7 @@ export class ORM<T extends IID> implements IORM {
         const db = await ORM.getDatabase()
         if (this._id) {
             const { numAffected } = await db.updateAsync<T>({ _id: this._id }, this.toDocument(), {})
-            if (numAffected !== 1) throw Error(numAffected+' documents updated instead of one.')
+            if (numAffected !== 1) throw Error(numAffected + ' documents updated instead of one.')
             return this.toDocument()
         } else {
             const inserted = await db.insertAsync(this.toDocument())
