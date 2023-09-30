@@ -3,6 +3,8 @@ ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
 ![Deploy NPM Package](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)
 
+[![codecov](https://codecov.io/gh/levg34/typescript-nedb-orm/graph/badge.svg?token=MDFK0S9ZBB)](https://codecov.io/gh/levg34/typescript-nedb-orm)
+
 ## How to install
 
 ```bash
