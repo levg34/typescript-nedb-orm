@@ -23,19 +23,19 @@ describe('instantiate, save, read, edit and delete', () => {
         expect(person.email).toBe(params.email)
         expect(person.name).toBe(params.name)
     })
-    
-    it ('can save an object', async () => {
-        const recordCount = await db.countAsync({email: params.email})
+
+    it('can save an object', async () => {
+        const recordCount = await db.countAsync({ email: params.email })
         expect(recordCount).toBe(0)
         savedPerson = await person.save()
-        const recordCountAfter = await db.countAsync({email: params.email})
+        const recordCountAfter = await db.countAsync({ email: params.email })
         expect(recordCountAfter).toBe(1)
         expect(savedPerson._id).toBeDefined()
         expect(savedPerson.email).toBe(params.email)
         expect(savedPerson.name).toBe(params.name)
     })
-    
-    it ('can retrieve an object', async () => {
+
+    it('can retrieve an object', async () => {
         retrievedPerson = (await Person.find<IPerson>({
             email: params.email
         }))[0]
@@ -43,9 +43,9 @@ describe('instantiate, save, read, edit and delete', () => {
         expect(retrievedPerson.email).toBe(params.email)
         expect(retrievedPerson.name).toBe(params.name)
     })
-    
+
     const newMail = 'luc2@luc.fr'
-    it ('can edit an object', async () => {
+    it('can edit an object', async () => {
         retrievedPerson.email = newMail
         const editedPerson = new Person(retrievedPerson)
         const personAfterEdit = await editedPerson.save()
@@ -55,27 +55,48 @@ describe('instantiate, save, read, edit and delete', () => {
         expect(personAfterEdit.name).toBe(params.name)
     })
 
-    it ('editing does not create a new object', async () => {
-        const recordCount = await db.countAsync({email: newMail})
+    it('editing does not create a new object', async () => {
+        const recordCount = await db.countAsync({ email: newMail })
         expect(recordCount).toBe(1)
     })
 
     it('can delete an object', async () => {
-        const personToDelete = await Person.find<IPerson>({email: newMail})
+        const personToDelete = await Person.find<IPerson>({ email: newMail })
         const deleted = await new Person(personToDelete[0]).delete()
         expect(deleted).toBeTruthy()
-        const recordCount = await db.countAsync({email: newMail})
+        const recordCount = await db.countAsync({ email: newMail })
         expect(recordCount).toBe(0)
     })
 
     it('can find one among many', async () => {
-        // TODO
-        await Person.findOne({})
+        const person1 = new Person({
+            name: 'Luc',
+            email: 'luc@luc.fr'
+        })
+        await person1.save()
+        const person2 = new Person({
+            name: 'Luc',
+            email: 'luc2@luc.fr'
+        })
+        await person2.save()
+        const person = await Person.findOne({ name: 'Luc' })
+        expect(person?.name).toEqual('Luc')
     })
 
     it('can update several objects', async () => {
-        // TODO
-        await Person.update({}, {})
+        const updated = await Person.update({ name: 'Luc' }, { name: 'Lucie' })
+        expect(updated).toBe(2)
+        const persons = await Person.find<IPerson>({ name: 'Lucie' })
+        expect(persons).toContainEqual<IPerson>({
+            _id: expect.any(String),
+            name: 'Lucie',
+            email: 'luc@luc.fr'
+        })
+        expect(persons).toContainEqual<IPerson>({
+            _id: expect.any(String),
+            name: 'Lucie',
+            email: 'luc2@luc.fr'
+        })
     })
 
     it('can remove several objects', async () => {
