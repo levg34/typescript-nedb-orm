@@ -62,8 +62,7 @@ describe('instantiate, save, read, edit and delete', () => {
 
     it('can delete an object', async () => {
         const personToDelete = await Person.find<IPerson>({ email: newMail })
-        const deleted = await new Person(personToDelete[0]).delete()
-        expect(deleted).toBeTruthy()
+        await new Person(personToDelete[0]).delete()
         const recordCount = await db.countAsync({ email: newMail })
         expect(recordCount).toBe(0)
     })

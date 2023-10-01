@@ -28,13 +28,13 @@ export class ORM<T extends IID> implements IORM {
         }
     }
 
-    async delete(): Promise<boolean> {
+    async delete(): Promise<void> {
         const db = await ORM.getDatabase()
+        let deleted
         if (this._id) {
-            const deleted = await db.removeAsync({ _id: this._id }, { multi: false })
-            return deleted === 1
+            deleted = await db.removeAsync({ _id: this._id }, { multi: false })
         }
-        return false
+        if (deleted !== 1) throw Error('Could not delete the document with _id=' + this._id)
     }
 
     toDocument(): T {
