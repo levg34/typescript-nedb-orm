@@ -76,7 +76,7 @@ const retrievedPersons: IPerson[] = await Person.find<IPerson>({
 Delete your object:
 
 ```typescript
-const deleted: boolean = await person.delete()
+await person.delete()
 ```
 
 Update your objects in db:
