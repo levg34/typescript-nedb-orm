@@ -108,7 +108,7 @@ const found: IPerson | null = await Person.findOne<IPerson>({
 Find an object by id in db:
 
 ```typescript
-const foundById: IPerson | null = await Person.findById<IPerson>('1234567890')
+const foundById: IPerson | null = await Person.findById<IPerson>('kpOBxczJlr2R5S68')
 ```
 
 Count the number of objects in db:
