@@ -1,4 +1,5 @@
 # typescript-nedb-orm
+
 ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
 ![Deploy NPM Package](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)
@@ -76,17 +77,20 @@ const retrievedPersons: IPerson[] = await Person.find<IPerson>({
 Delete your object:
 
 ```typescript
-const deleted: boolean = await person.delete()
+await person.delete()
 ```
 
 Update your objects in db:
 
 ```typescript
-const updated: number = await Person.update<IPerson>({
-    name: 'Luc'
-}, {
-    email: 'luc@new.fr'
-})
+const updated: number = await Person.update<IPerson>(
+    {
+        name: 'Luc'
+    },
+    {
+        email: 'luc@new.fr'
+    }
+)
 ```
 
 Remove your objects in db:
@@ -108,7 +112,7 @@ const found: IPerson | null = await Person.findOne<IPerson>({
 Find an object by id in db:
 
 ```typescript
-const foundById: IPerson | null = await Person.findById<IPerson>('1234567890')
+const foundById: IPerson | null = await Person.findById<IPerson>('kpOBxczJlr2R5S68')
 ```
 
 Count the number of objects in db:
@@ -129,12 +133,12 @@ Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contribu
 2. Clone the forked repository to your local machine.
 3. Install the required dependencies using `npm install`.
 4. Make your changes, following these coding style guidelines:
-   - No semicolon at the end of lines.
-   - Use single quotes instead of double quotes.
-   - Indent with 4 spaces for TS and JS files, and 2 spaces for JSON or HTML.
+    - No semicolon at the end of lines.
+    - Use single quotes instead of double quotes.
+    - Indent with 4 spaces for TS and JS files, and 2 spaces for JSON or HTML.
 5. Ensure that the code passes the coverage requirements:
-   - Add tests for the changes made.
-   - Run `npx jest -- --coverage` to check if the code passes the coverage requirements.
+    - Add tests for the changes made.
+    - Run `npx jest -- --coverage` to check if the code passes the coverage requirements.
 6. Update the documentation (`README.md`) to reflect your changes.
 7. Commit your changes and push them to your forked repository.
 8. Create a pull request to the `main` branch of the original repository.
