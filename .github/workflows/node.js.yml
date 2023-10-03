@@ -61,4 +61,4 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - name: ESLint
-        run: npm lint
+        run: npm run lint
