@@ -2,7 +2,6 @@ name: Auto approve
 
 on:
   pull_request_review:
-  push:
 
 jobs:
   log_things:
@@ -11,7 +10,7 @@ jobs:
        - run: echo "User login is ${{ toJson(github.event) }}"
 
   check_eligible:
-    if: github.event.comment.user.login == 'levg34'
+    if: github.event.review.user.login == 'levg34' && github.event.review.body == '🆗'
     runs-on: ubuntu-latest
     steps:
       - name: check eligible
