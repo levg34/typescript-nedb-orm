@@ -41,7 +41,7 @@ export class ORM<T extends IID> implements IORM {
         return JSON.parse(JSON.stringify(this))
     }
 
-    static async getDatabase(): Promise<Datastore<any>> {
+    static async getDatabase<T>(): Promise<Datastore<T>> {
         if (!ORM.database) {
             ORM.database = new Datastore({
                 filename: 'data/datafile.json',
@@ -54,13 +54,13 @@ export class ORM<T extends IID> implements IORM {
     static async find<T>(query?: Partial<T>, projection?: Partial<T>): Promise<T[]> {
         const db = await ORM.getDatabase()
         const docs = await db.findAsync(query, projection)
-        return docs
+        return docs as T[]
     }
 
     static async findOne<T>(query: Partial<T>, projection?: Partial<T>): Promise<T | null> {
         const db = await ORM.getDatabase()
         const doc = await db.findOneAsync(query, projection)
-        return doc
+        return doc as T
     }
 
     static async update<T>(query: Partial<T>, update: Partial<T>, options?: Datastore.UpdateOptions): Promise<number> {
@@ -81,7 +81,7 @@ export class ORM<T extends IID> implements IORM {
     static async findById<T>(id: string, projection?: Partial<T>): Promise<T | null> {
         const db = await ORM.getDatabase()
         const doc = await db.findOneAsync({ _id: id }, projection)
-        return doc
+        return doc as T
     }
 
     static async count<T>(condition?: Partial<T>): Promise<number> {
