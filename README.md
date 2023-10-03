@@ -2,8 +2,8 @@
 ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
 ![Deploy NPM Package](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)
-
 [![codecov](https://codecov.io/gh/levg34/typescript-nedb-orm/graph/badge.svg?token=MDFK0S9ZBB)](https://codecov.io/gh/levg34/typescript-nedb-orm)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## How to install
 
