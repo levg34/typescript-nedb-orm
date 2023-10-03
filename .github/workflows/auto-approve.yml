@@ -8,7 +8,7 @@ jobs:
   log_things:
      runs-on: ubuntu-latest
      steps:
-       - run: echo ${github.event.comment.user.login}
+       - run: echo "User login is ${{ github.event }}"
 
   check_eligible:
     if: github.event.comment.user.login == 'levg34'
