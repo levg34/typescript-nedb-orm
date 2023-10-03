@@ -2,6 +2,7 @@ name: Auto approve
 
 on:
   pull_request_review:
+  push:
 
 jobs:
   log_things:
