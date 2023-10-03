@@ -8,21 +8,11 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - run: echo "User login is ${{ toJson(github.event.review.user.login) }}"
-       - run: echo "User login is ${{ toJson(github.event.review.body) }}"
+       - run: echo "PR review body is ${{ toJson(github.event.review.body) }}"
 
-  check_eligible:
+  auto_approve:
     if: github.event.review.user.login == 'levg34' && github.event.review.body == '🆗'
     runs-on: ubuntu-latest
     steps:
-      - name: check eligible
-        if: contains(github.event.comment.body, '/:ok:')
-        run: echo "Eligible"
-
-  auto-approve:
-    needs: check_eligible
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    if: github.actor == 'levg34'
-    steps:
-      - uses: hmarr/auto-approve-action@v3
+      - name: Auto approve
+        uses: hmarr/auto-approve-action@v3
