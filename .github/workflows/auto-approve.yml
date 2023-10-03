@@ -4,15 +4,13 @@ on:
   pull_request_review:
 
 jobs:
-  log_things:
-     runs-on: ubuntu-latest
-     steps:
-       - run: echo "User login is ${{ toJson(github.event.review.user.login) }}"
-       - run: echo "PR review body is ${{ toJson(github.event.review.body) }}"
-
   auto_approve:
-    if: github.event.review.user.login == 'levg34' && github.event.review.body == '🆗'
     runs-on: ubuntu-latest
     steps:
+      - name: Log things
+        run: |
+          echo "User login is ${{ github.event.review.user.login }}"
+          echo "PR review body is ${{ github.event.review.body }}"
       - name: Auto approve
+        if: github.event.review.user.login == 'levg34' && github.event.review.body == '🆗'
         uses: hmarr/auto-approve-action@v3
