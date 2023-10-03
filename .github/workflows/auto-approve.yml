@@ -4,8 +4,12 @@ on:
   pull_request_review:
 
 jobs:
+  log_things:
+     runs-on: ubuntu-latest
+     steps:
+       - run: echo github.event.comment.user.login
   check_eligible:
-    if: contains(github.event.comment.html_url, '/pull/') && github.event.comment.user.login == 'levg34'
+    if: github.event.comment.user.login == 'levg34'
     runs-on: ubuntu-latest
     steps:
       - name: check eligible
