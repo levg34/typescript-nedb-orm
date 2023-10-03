@@ -71,7 +71,10 @@ export class ORM<T extends IID> implements IORM {
 
     static async remove<T>(query: Partial<T>, options?: Datastore.RemoveOptions): Promise<number> {
         const db = await ORM.getDatabase()
-        const numRemoved = await db.removeAsync(query, { multi: true, ...options })
+        const numRemoved = await db.removeAsync(query, {
+            multi: true,
+            ...options
+        })
         return numRemoved
     }
 
@@ -80,7 +83,6 @@ export class ORM<T extends IID> implements IORM {
         const doc = await db.findOneAsync({ _id: id }, projection)
         return doc
     }
-
 
     static async count<T>(condition?: Partial<T>): Promise<number> {
         const db = await ORM.getDatabase()
