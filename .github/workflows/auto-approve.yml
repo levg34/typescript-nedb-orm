@@ -1,10 +1,19 @@
 name: Auto approve
 
-on:
-  pull_request:
-
+on:  
+  issue_comment:
+    types: [created, edited, deleted]
 jobs:
+  check_eligible:
+    if: contains(github.event.comment.html_url, '/pull/') && github.event.comment.user.login == 'levg34' # vérifie si les commentaires proviennent d'une pull request et sont de 'levg34'
+    runs-on: ubuntu-latest
+    steps:
+      - name: check eligible
+        if: contains(github.event.comment.body, '/support') # vérifie le commentaire s'il contient '/support'
+        run: echo "Eligible"
+
   auto-approve:
+    needs: check_eligible
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
