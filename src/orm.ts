@@ -1,4 +1,4 @@
-import Datastore from '@seald-io/nedb'
+import Datastore from "@seald-io/nedb"
 
 export interface IID {
     _id?: string
