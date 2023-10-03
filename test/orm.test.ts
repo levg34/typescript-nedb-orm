@@ -1,6 +1,6 @@
 import Datastore from '@seald-io/nedb'
 import { ORM } from '../src'
-import { IPerson, Person } from "./person"
+import { IPerson, Person } from './person'
 
 describe('instantiate, save, read, edit and delete', () => {
     let person: Person
@@ -36,9 +36,11 @@ describe('instantiate, save, read, edit and delete', () => {
     })
 
     it('can retrieve an object', async () => {
-        retrievedPerson = (await Person.find<IPerson>({
-            email: params.email
-        }))[0]
+        retrievedPerson = (
+            await Person.find<IPerson>({
+                email: params.email
+            })
+        )[0]
         expect(retrievedPerson._id).toBeDefined()
         expect(retrievedPerson.email).toBe(params.email)
         expect(retrievedPerson.name).toBe(params.name)
@@ -98,7 +100,7 @@ describe('instantiate, save, read, edit and delete', () => {
             email: 'luc2@luc.fr'
         })
     })
-    
+
     it('can count the objects', async () => {
         const count = await Person.count({ name: 'Lucie' })
         expect(count).toBe(2)
