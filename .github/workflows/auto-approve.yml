@@ -7,10 +7,6 @@ jobs:
   auto_approve:
     runs-on: ubuntu-latest
     steps:
-      - name: Log things
-        run: |
-          echo "User login is ${{ github.event.review.user.login }}"
-          echo "PR review body is ${{ github.event.review.body }}"
       - name: Auto approve
-        if: github.event.review.user.login == 'levg34' && contains(github.event.review.body, '🆗')
+        if: github.event.review.user.login == 'levg34' && github.event.pull_request.user.login == 'levg34' && contains(github.event.review.body, '🆗')
         uses: hmarr/auto-approve-action@v3
