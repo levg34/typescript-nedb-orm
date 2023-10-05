@@ -136,9 +136,12 @@ Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contribu
     - No semicolon at the end of lines.
     - Use single quotes instead of double quotes.
     - Indent with 4 spaces for TS and JS files, and 2 spaces for JSON or HTML.
+    - You can run `npm run format` to format your code before pushing.
 5. Ensure that the code passes the coverage requirements:
     - Add tests for the changes made.
     - Run `npx jest -- --coverage` to check if the code passes the coverage requirements.
+6. Ensure that the code passes the linting requirements:
+    - Run `npm run lint`
 6. Update the documentation (`README.md`) to reflect your changes.
 7. Commit your changes and push them to your forked repository.
 8. Create a pull request to the `main` branch of the original repository.
