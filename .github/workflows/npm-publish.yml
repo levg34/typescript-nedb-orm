@@ -4,6 +4,7 @@
 name: Node.js Package
 
 on:
+  push:
   release:
     types: [created]
 
@@ -20,7 +21,7 @@ jobs:
       - run: npm run lint
 
   publish-npm:
-    needs: build
+    needs: checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
