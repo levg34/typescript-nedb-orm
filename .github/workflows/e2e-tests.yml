@@ -1,12 +1,17 @@
 name: E2E Tests
 
+# Only trigger, when the Node.js Package workflow succeeded
 on:
-  release:
-    types: [created]
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Node.js Package"]
+    types:
+      - completed
 
 jobs:
   test:
+    # Only run if the Node.js Package workflow succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       matrix:
         module: [commonjs, ecmascript, ts-node, umd]
