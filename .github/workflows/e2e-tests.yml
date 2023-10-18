@@ -15,9 +15,11 @@ jobs:
         with:
           node-version: 16.x
       - name: Install and start ${{ matrix.module }}
+        if: matrix.module != 'umd' # skip umd job
         working-directory: ./e2e/${{ matrix.module }}
         run: |
           npm install
+          npm list typescript-nedb-orm --depth=0
           npm start
       - name: Report results
         if: always()
