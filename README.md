@@ -3,6 +3,7 @@
 ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
 [![Node.js Package](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml)
+[![E2E Tests](https://github.com/levg34/typescript-nedb-orm/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/e2e-tests.yml)
 [![Node.js CI](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/levg34/typescript-nedb-orm/graph/badge.svg?token=MDFK0S9ZBB)](https://codecov.io/gh/levg34/typescript-nedb-orm)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
@@ -144,9 +145,9 @@ Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contribu
     - Run `npx jest -- --coverage` to check if the code passes the coverage requirements.
 6. Ensure that the code passes the linting requirements:
     - Run `npm run lint`
-6. Update the documentation (`README.md`) to reflect your changes.
-7. Commit your changes and push them to your forked repository.
-8. Create a pull request to the `main` branch of the original repository.
+7. Update the documentation (`README.md`) to reflect your changes.
+8. Commit your changes and push them to your forked repository.
+9. Create a pull request to the `main` branch of the original repository.
 
 ### Reporting Issues
 
