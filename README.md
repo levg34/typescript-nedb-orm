@@ -6,6 +6,7 @@ ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 [![Node.js CI](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/levg34/typescript-nedb-orm/graph/badge.svg?token=MDFK0S9ZBB)](https://codecov.io/gh/levg34/typescript-nedb-orm)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![linter: ESLint](https://img.shields.io/badge/linter-ESLint-purple?logo=ESLint)
 
 ## How to install
 
