@@ -1,0 +1,39 @@
+name: E2E Tests
+
+# Only trigger, when the Node.js Package workflow succeeded
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Node.js Package"]
+    types:
+      - completed
+
+jobs:
+  test:
+    # Only run if the Node.js Package workflow succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    strategy:
+      matrix:
+        module: [commonjs, ecmascript, ts-node, umd]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Install and start ${{ matrix.module }}
+        if: matrix.module != 'umd' # skip umd job
+        working-directory: ./e2e/${{ matrix.module }}
+        run: |
+          npm install
+          npm list typescript-nedb-orm --depth=0
+          npm start
+      - name: Report results
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "${{ matrix.module }} passed"
+          else
+            echo "${{ matrix.module }} failed"
+          fi
