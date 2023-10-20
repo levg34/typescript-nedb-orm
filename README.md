@@ -2,7 +2,6 @@
 
 ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
-[![Node.js Package](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/npm-publish.yml)
 [![E2E Tests](https://github.com/levg34/typescript-nedb-orm/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/e2e-tests.yml)
 [![Node.js CI](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/levg34/typescript-nedb-orm/graph/badge.svg?token=MDFK0S9ZBB)](https://codecov.io/gh/levg34/typescript-nedb-orm)

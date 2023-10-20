@@ -75,4 +75,4 @@ jobs:
           # For example:
 
           echo "Directory	Status"
-          echo "${{ fromJson(steps.test_results.outputs.results) | join('\n') }}"
+          echo "${{ string(fromJson(steps.test_results.outputs.results)) }}"
