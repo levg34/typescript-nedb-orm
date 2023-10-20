@@ -17,9 +17,9 @@ jobs:
         module: [commonjs, ecmascript, ts-node, umd]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
       - name: Install and start ${{ matrix.module }}
@@ -29,11 +29,3 @@ jobs:
           npm install
           npm list typescript-nedb-orm --depth=0
           npm start
-      - name: Report results
-        if: always()
-        run: |
-          if [ ${{ job.status }} == 'success' ]; then
-            echo "${{ matrix.module }} passed"
-          else
-            echo "${{ matrix.module }} failed"
-          fi

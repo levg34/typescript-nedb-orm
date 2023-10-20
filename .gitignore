@@ -108,3 +108,6 @@ lib/
 
 # Data file
 data
+
+# E2E
+e2e.out
