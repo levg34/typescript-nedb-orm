@@ -2,6 +2,7 @@ name: E2E Tests
 
 # Only trigger, when the Node.js Package workflow succeeded
 on:
+  push:
   workflow_dispatch:
   workflow_run:
     workflows: ["Node.js Package"]
@@ -30,10 +31,17 @@ jobs:
           npm list typescript-nedb-orm --depth=0
           npm start
       - name: Report results
-        if: always()
         run: |
-          if [ ${{ job.status }} == 'success' ]; then
-            echo "${{ matrix.module }} passed"
-          else
-            echo "${{ matrix.module }} failed"
-          fi
+          printf "Directory\tStatus\n" > e2e.out
+          for MODULE in $ { { join (matrix.module, ' ') }}; do
+            STATUS=$ (curl -s -H "Authorization: token $ { { secrets.GITHUB_TOKEN }}" https://api.github.com/repos/$ { { github.repository }}/actions/runs/$ { { github.run_id }}/jobs | jq '.jobs[] | select (.name == "Install and start $MODULE") | .conclusion')
+            if [ "$STATUS" == "\"success\"" ]; then
+              printf "$MODULE\tOK\n" >> e2e.out
+            elif [ "$STATUS" == "null" ]; then
+              printf "$MODULE\tskipped\n" >> e2e.out
+            else
+              printf "$MODULE\tKO\n" >> e2e.out
+            fi
+          done
+          cat e2e.out
+
