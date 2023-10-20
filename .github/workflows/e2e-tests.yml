@@ -31,6 +31,7 @@ jobs:
           npm list typescript-nedb-orm --depth=0
           npm start
       - name: Report results
+        if: always()
         run: |
           printf "Directory\tStatus\n" > e2e.out
           for MODULE in $ { { join (matrix.module, ' ') }}; do
