@@ -34,7 +34,7 @@ jobs:
         if: always()
         run: |
           printf "Directory\tStatus\n" > e2e.out
-          for MODULE in $ { { join (matrix.module, ' ') }}; do
+          for MODULE in '$ { { join (matrix.module, " ") }}'; do
             STATUS=$ (curl -s -H "Authorization: token $ { { secrets.GITHUB_TOKEN }}" https://api.github.com/repos/$ { { github.repository }}/actions/runs/$ { { github.run_id }}/jobs | jq '.jobs[] | select (.name == "Install and start $MODULE") | .conclusion')
             if [ "$STATUS" == "\"success\"" ]; then
               printf "$MODULE\tOK\n" >> e2e.out
