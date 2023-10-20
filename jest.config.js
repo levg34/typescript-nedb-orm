@@ -4,6 +4,7 @@ module.exports = {
     testEnvironment: 'node',
     testPathIgnorePatterns: ['lib/'],
     collectCoverageFrom: ['src/*'],
+    coverageProvider: 'v8',
     coverageThreshold: {
         global: {
             lines: 90,
