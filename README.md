@@ -125,6 +125,35 @@ const count: number = await Person.count<IPerson>()
 
 Have fun! :)
 
+## Project Roadmap
+
+This roadmap outlines the vision I have for the future of TypeScript-NEDB-ORM. It provides insights into my current focus and the improvements I'm planning. While I aim to stick to this roadmap, priorities might shift based on feedback and challenges that arise.
+
+### Planned Features & Improvements
+
+#### 1. **Support for Multiple Classes**
+
+**Issue**: [#2](https://github.com/levg34/typescript-nedb-orm/issues/2)
+
+Description: I'm looking to enhance the ORM to allow usage with multiple classes. This would provide developers with more flexibility to create complex data structures and relationships.
+
+Possible Approaches:
+
+-   Using multiple databases (files) and maintaining a map of the databases within the ORM class.
+-   Having a single database system with a protected class keyword or other distinguishing parameters.
+
+I'm still considering the best approach to implement this. If you have any feedback or insights, your input would be invaluable. Please share your thoughts on the issue thread.
+
+### Future Considerations
+
+-   **Performance Optimizations**: Continuous efforts will be made to enhance the efficiency of queries and database interactions.
+-   **Enhanced Documentation**: I plan to add more tutorials, examples, and in-depth guides.
+-   **Extended Query Capabilities**: Aiming to provide more tools and flexibility in data retrieval and manipulation.
+
+### Your Input Matters
+
+Feedback and ideas from the community are always welcome. If you have suggestions or want to contribute to a feature on the roadmap, please follow the contribution guidelines or open a new issue for discussion.
+
 ## Contributing
 
 Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contributions are valued and help enhance this project.
