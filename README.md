@@ -146,8 +146,7 @@ I'm still considering the best approach to implement this. If you have any feedb
 
 ### Future Considerations
 
--   **Performance Optimizations**: Continuous efforts will be made to enhance the efficiency of queries and database interactions.
--   **Enhanced Documentation**: I plan to add more tutorials, examples, and in-depth guides.
+-   **Enhanced Documentation**: I plan to add more tutorials, examples (ready to run in StackBlitz), and in-depth guides.
 -   **Extended Query Capabilities**: Aiming to provide more tools and flexibility in data retrieval and manipulation.
 
 ### Your Input Matters
