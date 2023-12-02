@@ -1,4 +1,4 @@
-import { IID, ORM } from '../src/orm'
+import { IID, ORM } from '../src/'
 
 export interface IPerson extends IID {
     name: string
